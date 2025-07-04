@@ -3,11 +3,9 @@
   "workspaces": {
     "": {
       "name": "ponopono-api",
-      "devDependencies": {
-        "@types/bun": "latest",
-      },
-      "peerDependencies": {
-        "typescript": "^5",
+      "dependencies": {
+        "@types/bun": "^1.2.18",
+        "typescript": "^5.8.3",
       },
     },
   },

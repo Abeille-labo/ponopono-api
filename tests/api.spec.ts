@@ -1,6 +1,6 @@
 import {setDefaultTimeout, test} from "bun:test"
 import {createInterface} from "node:readline/promises"
-import {PonopnoApi} from "../index.ts"
+import {PonopnoApi} from "../src/index.ts"
 setDefaultTimeout(0)
 test("ponopono api test", async () => {
   const rl = createInterface(process.stdin, process.stdout)
