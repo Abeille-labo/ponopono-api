@@ -1,11 +1,15 @@
 {
   "name": "ponopono-api",
-  "module": "index.ts",
+  "module": "dist/index.js",
   "type": "module",
+  "types": "dist/index.d.ts",
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "script": {
+    "build": "bun build"
   }
 }
