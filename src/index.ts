@@ -1,9 +1,10 @@
 import { createHmac, sign } from "node:crypto"
 type TSOArea = "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09" | "10"
 type PonoponoSearthParmas = {
+  area?: TSOArea
+  filename?: string
   from?: string
   to?: string
-  area?: TSOArea
   downloaded?: boolean
 }
 type PonoponoFileInfo = {
@@ -23,7 +24,7 @@ type PonoponoSearchFileResponse = {
   data: PonoponoFileInfo[]
 }
 type FileResonse = {
-  filename: string,
+  filename: string
   file: ArrayBuffer
 }
 const PONOPONO_API_BASE_URL = "https://fp-ponopono.com"

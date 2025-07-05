@@ -31,6 +31,7 @@ async function findFiles() {
   try {
     const searchResult = await ponopono.searchFiles({
       area: '01', // Example area
+      filename: 'example.csv', // Example filename
       downloaded: false
     });
     console.log('Found files:', searchResult.data);
@@ -83,9 +84,10 @@ Creates a new API client instance.
 Searches for files based on the provided parameters.
 
 -   `searchParams` (PonoponoSearthParmas): An optional object with search criteria.
+    -   `area` (TSOArea, optional): Area code (e.g., "01", "02").
+    -   `filename` (string, optional): Filter by filename. This performs a partial match search.
     -   `from` (string, optional): Start date (YYYY-MM-DD).
     -   `to` (string, optional): End date (YYYY-MM-DD).
-    -   `area` (TSOArea, optional): Area code (e.g., "01", "02").
     -   `downloaded` (boolean, optional): Filter by download status.
 -   Returns: `Promise<PonoponoSearchFileResponse>`
 

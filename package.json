@@ -1,6 +1,6 @@
 {
   "name": "ponopono-api",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "module": "dist/index.js",
   "files": ["dist"],
   "type": "module",
