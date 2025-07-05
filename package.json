@@ -2,16 +2,12 @@
   "name": "ponopono-api",
   "version": "1.0.3",
   "module": "dist/index.js",
-  "files":["dist"],
+  "files": ["dist"],
   "type": "module",
   "types": "dist/types/index.d.ts",
-  "dependencies": {
-    "@types/bun": "^1.2.18",
-    "typescript": "^5.8.3"
-  },
-  "exports":{
-    "import":"./dist/index.js",
-    "require":"./dist/index.cjs",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs",
     "types": "./dist/types/index.d.ts"
   },
   "repository": {
@@ -20,5 +16,9 @@
   },
   "scripts": {
     "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.18",
+    "typescript": "^5.8.3"
   }
 }
