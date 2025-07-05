@@ -26,9 +26,6 @@ type FileResonse = {
   filename: string,
   file: ArrayBuffer
 }
-type PonoponoErrorResponse = {
-  "error": "Unauthorized."
-}
 const PONOPONO_API_BASE_URL = "https://fp-ponopono.com"
 const PONOPONO_API_BASE_PATH = "/pn-api/v1"
 const TSO_FILES = "/tso-files"
@@ -82,3 +79,5 @@ export class PonopnoApi {
     }
   }
 }
+
+export default PonopnoApi
