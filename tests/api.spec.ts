@@ -1,3 +1,4 @@
+// test for bun test
 import {setDefaultTimeout, test} from "bun:test"
 import {createInterface} from "node:readline/promises"
 import {PonopnoApi} from "../src/index.ts"
