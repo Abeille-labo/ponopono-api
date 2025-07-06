@@ -31,7 +31,7 @@ const PONOPONO_API_BASE_URL = "https://fp-ponopono.com"
 const PONOPONO_API_BASE_PATH = "/pn-api/v1"
 const TSO_FILES = "/tso-files"
 const FILE_API_ENDPOINT = `${PONOPONO_API_BASE_URL}${PONOPONO_API_BASE_PATH}${TSO_FILES}`
-export class PonopnoApi {
+export class PonoponoApi {
   constructor(private key:string, private secret:string) {}
   async searchFiles(searchParams?: PonoponoSearthParmas): Promise<PonoponoSearchFileResponse> {
     const params = new URLSearchParams()
@@ -81,4 +81,4 @@ export class PonopnoApi {
   }
 }
 
-export default PonopnoApi
+export default PonoponoApi

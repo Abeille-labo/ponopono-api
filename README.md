@@ -13,13 +13,13 @@ npm install ponopono-api
 First, you need to import the library and initialize the client with your API key and secret.
 
 ```typescript
-import { PonopnoApi } from 'ponopono-api';
+import { PonoponoApi } from 'ponopono-api';
 import { writeFileSync } from 'fs';
 
 const apiKey = 'YOUR_API_KEY';
 const apiSecret = 'YOUR_API_SECRET';
 
-const ponopono = new PonopnoApi(apiKey, apiSecret);
+const ponopono = new PonoponoApi(apiKey, apiSecret);
 ```
 
 ### Search for files
@@ -72,7 +72,7 @@ main();
 
 ## API Reference
 
-### `new PonopnoApi(key, secret)`
+### `new PonoponoApi(key, secret)`
 
 Creates a new API client instance.
 
