@@ -1,6 +1,6 @@
 {
   "name": "ponopono-api",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "module": "dist/index.js",
   "files": ["dist"],
   "type": "module",
@@ -19,7 +19,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "publish": "npm run build && npm publish"
+    "build:publish": "npm run build && npm publish"
   },
   "devDependencies": {
     "@types/bun": "^1.2.18",
