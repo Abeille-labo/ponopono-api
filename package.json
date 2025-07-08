@@ -1,6 +1,6 @@
 {
   "name": "ponopono-api",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "module": "dist/index.js",
   "files": ["dist"],
   "type": "module",
@@ -18,7 +18,8 @@
     "url": "https://github.com/Abeille-labo/ponopono-api.git"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "publish": "npm run build && npm publish"
   },
   "devDependencies": {
     "@types/bun": "^1.2.18",

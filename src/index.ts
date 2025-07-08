@@ -6,6 +6,7 @@ type PonoponoSearthParmas = {
   from?: string
   to?: string
   downloaded?: boolean
+  xml?: boolean
 }
 type PonoponoFileInfo = {
   area: TSOArea
