@@ -1,5 +1,6 @@
 import { createHmac, sign } from "node:crypto"
 type TSOArea = "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09" | "10"
+type CustomHeader = {[header: string]: string}
 type PonoponoSearthParmas = {
   area?: TSOArea
   filename?: string
@@ -34,7 +35,7 @@ const TSO_FILES = "/tso-files"
 const FILE_API_ENDPOINT = `${PONOPONO_API_BASE_URL}${PONOPONO_API_BASE_PATH}${TSO_FILES}`
 export class PonoponoApi {
   constructor(private key:string, private secret:string) {}
-  async searchFiles(searchParams?: PonoponoSearthParmas): Promise<PonoponoSearchFileResponse> {
+  async searchFiles(searchParams?: PonoponoSearthParmas, header?: CustomHeader): Promise<PonoponoSearchFileResponse> {
     const params = new URLSearchParams()
     if(searchParams){
       Object.entries(searchParams).forEach(([key, value]) => {
@@ -45,7 +46,7 @@ export class PonoponoApi {
     const searchParam = 0 < params.size ? `?${params.toString()}` : ""
     const signaturePath = `${PONOPONO_API_BASE_PATH}${TSO_FILES}${searchParam}` 
     return fetch(url, {
-      headers:this.createHeader("GET", signaturePath)
+      headers:this.createHeader("GET", signaturePath, header)
     }).then(async (r)=>{
       if(r.status !== 200){
         throw new Error((await r.json() as any).error)
@@ -53,10 +54,10 @@ export class PonoponoApi {
       return r.json() as any
     })
   }
-  async getFile(downloadPath:string):Promise<FileResonse> {
+  async getFile(downloadPath:string, header?: CustomHeader):Promise<FileResonse> {
     const endUrl = `${PONOPONO_API_BASE_URL}${downloadPath}`
     return fetch(endUrl, {
-      headers: this.createHeader("GET", downloadPath)
+      headers: this.createHeader("GET", downloadPath, header)
     }).then(async(r)=>{
       if(r.status !== 200){
         throw new Error((await r.json() as any).error)
@@ -69,7 +70,7 @@ export class PonoponoApi {
       }
     })
   }
-  createHeader(method: "GET"|"POST", path: string): Record<string, string> {
+  private createHeader(method: "GET"|"POST", path: string, header:CustomHeader = {}): Record<string, string> {
     const timestamp= "" + Math.floor(Date.now() / 1000)
     const stirngToSign = `${timestamp}.${method}.${path}`
     
@@ -77,7 +78,8 @@ export class PonoponoApi {
     return {
       "X-API-Key": this.key,
       "X-Timestamp": timestamp,
-      "X-Signature": signature
+      "X-Signature": signature,
+      ...header
     }
   }
 }
