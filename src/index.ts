@@ -15,6 +15,7 @@ type PonoponoFileInfo = {
   downloadPath: string
   type: string
   publishedAt: string
+  createdAt: string
   lastDownloadedBy: string
   lastDaonwloadedAt: string
 }
@@ -29,7 +30,7 @@ type FileResonse = {
   filename: string
   file: ArrayBuffer
 }
-const PONOPONO_API_BASE_URL = "https://fp-ponopono.com"
+const PONOPONO_API_BASE_URL = process.env.MOCK_HOST ?? "https://fp-ponopono.com"
 const PONOPONO_API_BASE_PATH = "/pn-api/v1"
 const TSO_FILES = "/tso-files"
 const FILE_API_ENDPOINT = `${PONOPONO_API_BASE_URL}${PONOPONO_API_BASE_PATH}${TSO_FILES}`

@@ -1,16 +1,14 @@
 // test for bun test
 import {setDefaultTimeout, test} from "bun:test"
-import {createInterface} from "node:readline/promises"
 import {PonoponoApi} from "../src/index.ts"
 setDefaultTimeout(0)
 test("ponopono api test", async () => {
-  const rl = createInterface(process.stdin, process.stdout)
-  const apiKey = await rl.question("api key: ")
-  const apiSecret = await rl.question("api secret: ")
+  const apiKey = process.env.API_KEY!
+  const apiSecret = process.env.API_SECRET!
   console.log(apiKey, apiSecret)
   const api = new PonoponoApi(apiKey, apiSecret)
   const res = await api.searchFiles({})
   const [first] = res.data
   const file = await api.getFile(first!.downloadPath)
-  console.log(file.filename)
+  console.log(file.filename, file.file.byteLength)
 })
